@@ -189,6 +189,77 @@ There are amazing applications or problems that can be solved using the above co
 Example : My Calendar I (Leetcode - 729) -
          You can find it in my interview_ds_algo repository as well B-)
 ```
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    // Sorted vector for demonstration
+    std::vector<int> vec = {1, 2, 3, 4, 4, 5, 6, 7};
+
+    int value = 4;
+
+    // Find lower bound: first element not less than value
+    auto lb = std::lower_bound(vec.begin(), vec.end(), value);
+    if (lb != vec.end()) {
+        std::cout << "Lower bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), lb) << " with value " << *lb << std::endl;
+    } else {
+        std::cout << "No lower bound found for " << value << std::endl;
+    }
+
+    // Find upper bound: first element greater than value
+    auto ub = std::upper_bound(vec.begin(), vec.end(), value);
+    if (ub != vec.end()) {
+        std::cout << "Upper bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), ub) << " with value " << *ub << std::endl;
+    } else {
+        std::cout << "No upper bound found for " << value << std::endl;
+    }
+
+    // Edge case: when value is not found in the vector
+    value = 8;  // Value larger than all elements in the vector
+
+    lb = std::lower_bound(vec.begin(), vec.end(), value);
+    if (lb != vec.end()) {
+        std::cout << "\nLower bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), lb) << " with value " << *lb << std::endl;
+    } else {
+        std::cout << "\nNo lower bound found for " << value << std::endl;
+    }
+
+    ub = std::upper_bound(vec.begin(), vec.end(), value);
+    if (ub != vec.end()) {
+        std::cout << "Upper bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), ub) << " with value " << *ub << std::endl;
+    } else {
+        std::cout << "No upper bound found for " << value << std::endl;
+    }
+
+    // Edge case: when value is smaller than all elements in the vector
+    value = 0;  // Value smaller than all elements in the vector
+
+    lb = std::lower_bound(vec.begin(), vec.end(), value);
+    if (lb != vec.end()) {
+        std::cout << "\nLower bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), lb) << " with value " << *lb << std::endl;
+    } else {
+        std::cout << "\nNo lower bound found for " << value << std::endl;
+    }
+
+    ub = std::upper_bound(vec.begin(), vec.end(), value);
+    if (ub != vec.end()) {
+        std::cout << "Upper bound of " << value << " is at index " 
+                  << std::distance(vec.begin(), ub) << " with value " << *ub << std::endl;
+    } else {
+        std::cout << "No upper bound found for " << value << std::endl;
+    }
+
+    return 0;
+}
+
+```
 
 ### :memo: std::rotate 🌀
 ```c++
