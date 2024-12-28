@@ -283,6 +283,128 @@ cout << (s.length() == t.length() && (s+s).find(t) != string::npos) << endl;
 
 ```
 
+```
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+int main() {
+    // Creating and initializing strings
+    std::string str1 = "Hello, World!";
+    std::string str2 = " Welcome to C++ programming.";
+    
+    // 1. String concatenation (append)
+    std::string concatenated = str1 + str2;  // Using the '+' operator
+    std::cout << "Concatenated: " << concatenated << std::endl;
+
+    // 2. String length
+    std::cout << "Length of str1: " << str1.length() << std::endl;
+
+    // 3. Accessing characters (by index)
+    std::cout << "Character at index 7 in str1: " << str1[7] << std::endl;
+    std::cout << "Character at index 0 in str1: " << str1.at(0) << std::endl;
+
+    // 4. String comparison
+    if (str1 == "Hello, World!") {
+        std::cout << "str1 is equal to 'Hello, World!'" << std::endl;
+    }
+    
+    if (str1 != str2) {
+        std::cout << "str1 is not equal to str2" << std::endl;
+    }
+
+    // 5. Substring extraction
+    std::string substr = str1.substr(7, 5);  // Extract substring starting from index 7 with length 5
+    std::cout << "Substring from str1: " << substr << std::endl;
+
+    // 6. Finding a character (or substring)
+    size_t found = str1.find("World");  // Find first occurrence of "World"
+    if (found != std::string::npos) {
+        std::cout << "'World' found at index: " << found << std::endl;
+    } else {
+        std::cout << "'World' not found in str1" << std::endl;
+    }
+
+    // 7. Erasing part of a string
+    str1.erase(5, 2);  // Erase 2 characters starting from index 5
+    std::cout << "After erasing: " << str1 << std::endl;
+
+    // 8. Inserting into a string
+    str1.insert(5, ", C++");  // Insert ", C++" at index 5
+    std::cout << "After inserting: " << str1 << std::endl;
+
+    // 9. Replacing part of a string
+    str1.replace(7, 5, "Python");  // Replace "World" with "Python"
+    std::cout << "After replacing: " << str1 << std::endl;
+
+    // 10. Converting string to uppercase and lowercase
+    std::string upperStr = str2;
+    std::transform(upperStr.begin(), upperStr.end(), upperStr.begin(), ::toupper);
+    std::cout << "Uppercase str2: " << upperStr << std::endl;
+
+    std::string lowerStr = str2;
+    std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
+    std::cout << "Lowercase str2: " << lowerStr << std::endl;
+
+    // 11. Trimming whitespaces
+    std::string str3 = "   Trim me!   ";
+    str3.erase(0, str3.find_first_not_of(" "));  // Trim leading spaces
+    str3.erase(str3.find_last_not_of(" ") + 1);  // Trim trailing spaces
+    std::cout << "Trimmed str3: '" << str3 << "'" << std::endl;
+
+    // 12. String to integer conversion
+    std::string strNum = "123";
+    int num = std::stoi(strNum);  // Convert string to int
+    std::cout << "String '123' as integer: " << num << std::endl;
+
+    // 13. Integer to string conversion
+    int num2 = 456;
+    std::string numStr = std::to_string(num2);  // Convert int to string
+    std::cout << "Integer 456 as string: " << numStr << std::endl;
+
+    // 14. Checking if string is empty
+    if (str1.empty()) {
+        std::cout << "str1 is empty" << std::endl;
+    } else {
+        std::cout << "str1 is not empty" << std::endl;
+    }
+
+    // 15. String reversal
+    std::string reversed = str2;
+    std::reverse(reversed.begin(), reversed.end());
+    std::cout << "Reversed str2: " << reversed << std::endl;
+
+    // 16. Splitting a string (using a delimiter)
+    std::string str4 = "apple,banana,cherry";
+    size_t pos = 0;
+    while ((pos = str4.find(',')) != std::string::npos) {
+        std::cout << "Split part: " << str4.substr(0, pos) << std::endl;
+        str4.erase(0, pos + 1);
+    }
+    std::cout << "Remaining part: " << str4 << std::endl;  // Output last part (cherry)
+
+    // 17. Checking if a string starts or ends with a certain substring
+    if (str1.find("Hello") == 0) {
+        std::cout << "str1 starts with 'Hello'" << std::endl;
+    }
+
+    if (str2.find("C++") == str2.length() - 4) {
+        std::cout << "str2 ends with 'C++'" << std::endl;
+    }
+
+    // 18. Finding the length of a string using `size()`
+    std::cout << "Size of str1: " << str1.size() << std::endl;
+
+    // 19. Using `std::string::c_str` to get C-string representation
+    const char* cstr = str1.c_str();
+    std::cout << "C-string representation of str1: " << cstr << std::endl;
+
+    return 0;
+}
+
+```
+
 ### :memo: std::next_permutation ➡️
 ```c++
 It gives the next lexicographically greater permutation.
